@@ -80,10 +80,13 @@ def index():
 @genaibox.route('/process', methods=['POST'])
 def process():
     prompt = request.form['user_input']
+    print(prompt)
     generated_text = prompt
 
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify(data=generated_text)  # Return JSON response for AJAX request
 
-    return render_template('index.html', data=generated_text)  # Render template for regular form submission
+    return render_template('index.html')  # Render the template for regular form submission
 # '''
 
 '''

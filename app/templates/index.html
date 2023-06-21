@@ -1,7 +1,24 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GenAIBox</title>
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+    <body>
 
-{% block chat_content %}
-    {% for item in data %}
-        <li>{{ item }}</li>
-    {% endfor %}
-{% endblock %}
+        <h1 class="main-title">GenAIBox</h1>
+
+        <div class="chat-box">
+            <div class="chat-messages-container">
+                <ul id="chat-messages"></ul>
+            </div>
+        </div>
+
+        <form id="api-form" method="POST">
+            <input type="text" name="user_input" id="user-input" placeholder="Enter text...">
+            <input type="submit" value="Submit">
+        </form>
+
+        <script src="/static/script.js"></script>
+    </body>
+</html>
