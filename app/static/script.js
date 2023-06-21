@@ -45,3 +45,17 @@ function scrollToBottom() {
     var chatBox = document.getElementsByClassName('chat-box')[0];
     chatBox.scrollTop = chatBox.scrollHeight;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var hamburgerMenu = document.getElementById('hamburger-menu');
+    var sideMenu = document.querySelector('.side-menu');
+    var closeButton = sideMenu.querySelector('.close-button');
+  
+    hamburgerMenu.addEventListener('click', function() {
+      sideMenu.classList.add('open');
+    });
+  
+    closeButton.addEventListener('click', function() {
+      sideMenu.classList.remove('open');
+    });
+  });
