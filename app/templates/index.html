@@ -1,12 +1,10 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
 <h1>Index</h1>
 
 <div class="chat-box">
-    <ul>
-        {% content %}
-    </ul>
+    {% include 'chat.html' %}
 </div>
 
 <form action="/process" method="POST">
