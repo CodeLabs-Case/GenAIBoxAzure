@@ -76,7 +76,7 @@ Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 300, 0.2, 0.2, 0.0)
 def index():
     return render_template("index.html")
 
-
+# '''
 @genaibox.route('/process', methods=['POST'])
 def process():
     prompt = request.form['user_input']
@@ -87,3 +87,4 @@ def process():
 
     #return render_template('index.html', data=generated_text)
     return render_template('index.html', data=generated_text)
+# '''

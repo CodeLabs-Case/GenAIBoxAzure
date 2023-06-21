@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>GenAIBox</title>
-        <script src="../scripts/openai.js"></script>
-    </head>
-    <body>
+{% extends "base.html" %}
 
-        <h1>GenAIBox</h1>
-
-        <div class="chat-box">
-            <ul>
-                {% content %}
-            </ul>
-        </div>
-
-        <form id="api-form">
-            <input type="text" name="user_input" id="user-input" placeholder="Enter text...">
-            <input type="submit" value="Submit">
-        </form>
-    </body>
-</html>
+{% block chat_content %}
+    {% for item in data %}
+        <li>{{ item }}</li>
+    {% endfor %}
+{% endblock %}

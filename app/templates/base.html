@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GenAIBox</title>
+        <script src="../scripts/openai.js"></script>
+    </head>
+    <body>
+
+        <h1>GenAIBox</h1>
+
+        <div class="chat-box">
+            <ul>
+                {% block chat_content %}{% endblock %}
+            </ul>
+        </div>
+
+        <form id="api-form">
+            <input type="text" name="user_input" id="user-input" placeholder="Enter text...">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
