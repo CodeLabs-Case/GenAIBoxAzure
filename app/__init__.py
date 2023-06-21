@@ -10,14 +10,14 @@ def index():
     return render_template("index.html")
 
 
-# @genaibox.route('/process', methods=['POST'])
-# def process():
-#     user_input = request.form['user_input']
+@genaibox.route('/process', methods=['POST'])
+def process():
+    user_input = request.form['user_input']
 
-#     # Make the API call using the user input
-#     # ...
+    # Make the API call using the user input
+    # ...
 
-#     # Process the API response
-#     # ...
+    # Process the API response
+    # ...
 
-#     return 'API call successful!'
+    return 'API call successful!'
