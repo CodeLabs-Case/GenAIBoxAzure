@@ -12,7 +12,7 @@ class ChatGPT3(object):
     def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
         #openai_api_key = os.environ.get('API_KEY')
         self.openai_api_key = os.environ['API_KEY']
-        print("API KEY: {}".format(openai_api_key))
+        print("API KEY: {}".format(self.openai_api_key))
         # (7) chosen parameters for example
         self.model = model
         self.context = context
