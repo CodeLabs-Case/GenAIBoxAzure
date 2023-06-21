@@ -1,15 +1,23 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GenAIBox</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../scripts/openai.js"></script>
+    </head>
+    <body>
 
-{% block content %}
-<h1>Index</h1>
+        <h1>GenAIBox</h1>
 
-<div class="chat-box">
-    {% include 'chat.html' %}
-</div>
+        <div class="chat-box">
+            <ul>
+                {% content %}
+            </ul>
+        </div>
 
-<form action="/process" method="POST">
-    <input type="text" name="user_input" placeholder="Enter text...">
-    <input type="submit" value="Submit">
-</form>
-
-{% endblock %}
+        <form id="api-form">
+            <input type="text" name="user_input" id="user-input" placeholder="Enter text...">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
