@@ -10,7 +10,7 @@ h1.main-title {
     font-size: 36px;
     margin: 20px 0;
     font-family: 'Montserrat', sans-serif;
-    color: #2980b9;
+    color: #0f5685;
 }
 .chat-box {
     background-color: #ffffff; /* White */
@@ -29,7 +29,7 @@ h1.main-title {
     height: 300px;
     overflow-y: auto;
     
-    width: 50%; 
+    width: 75%; 
     max-width: 100%;
     
     height: 100%;
@@ -37,6 +37,8 @@ h1.main-title {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+
+    scrollbar-color: transparent;
 }
 ul {
     list-style-type: none;
@@ -45,9 +47,15 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    background-color: #f1f1f1;
 }
 li {
     word-break: break-word;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    margin: 10px;
+    
 }
 #api-form {
     text-align: center;
@@ -67,7 +75,7 @@ li {
 }
 
 #api-form input[type="submit"] {
-    background-color: #3498db;
+    background-color: #094268;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -77,7 +85,7 @@ li {
 }
 
 #api-form input[type="submit"]:hover {
-    background-color: #2980b9;
+    background-color: #062c46;
 }
 
 #button {
