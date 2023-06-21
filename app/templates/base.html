@@ -2,21 +2,23 @@
 <html>
     <head>
         <title>GenAIBox</title>
-        <script src="../scripts/openai.js"></script>
+        
     </head>
     <body>
 
         <h1>GenAIBox</h1>
 
         <div class="chat-box">
-            <ul>
-                {% block chat_content %}{% endblock %}
+            <ul id="chat-messages">
+                <!-- Existing chat messages will be dynamically inserted here -->
             </ul>
         </div>
 
-        <form id="api-form">
+        <form id="api-form" method="POST">
             <input type="text" name="user_input" id="user-input" placeholder="Enter text...">
             <input type="submit" value="Submit">
         </form>
+
+        <script src="/static/openai.js"></script>
     </body>
 </html>

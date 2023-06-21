@@ -1,9 +1,9 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, jsonify, render_template
 from flask_restful import Api
 import openai
 import os
 
-genaibox = Flask(__name__)
+genaibox = Flask(__name__,static_url_path='/static')
 
 api = Api(genaibox, prefix='/api')
 
@@ -80,11 +80,21 @@ def index():
 @genaibox.route('/process', methods=['POST'])
 def process():
     prompt = request.form['user_input']
+    generated_text = prompt
 
+
+    return render_template('index.html', data=generated_text)  # Render template for regular form submission
+# '''
+
+'''
+@genaibox.route('/process', methods=['POST'])
+def process():
+    prompt = request.form['user_input']
+    
 
     #generated_text = Box1.chat(prompt)
-    generated_text = 'Response from ChatGPT'
+    generated_text = prompt
 
     #return render_template('index.html', data=generated_text)
     return render_template('index.html', data=generated_text)
-# '''
+'''
