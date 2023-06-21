@@ -39,7 +39,6 @@ class ChatGPT3(object):
 
         # Add to the conversation history
         self.context += text + "\n"
-        logging.info(response)
 
         #print('\n\nContext:\n{}'.format(self.context))
         return response
@@ -83,12 +82,8 @@ def process():
     prompt = request.form['user_input']
 
 
-    generated_text = Box1.chat(prompt)
+    #generated_text = Box1.chat(prompt)
+    generated_text = 'Response from ChatGPT'
 
-    # Make the API call using the user input
-    # ...
-
-    # Process the API response
-    # ...
-
+    #return render_template('index.html', data=generated_text)
     return render_template('index.html', data=generated_text)
