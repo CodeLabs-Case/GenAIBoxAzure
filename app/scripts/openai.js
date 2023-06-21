@@ -1,27 +1,30 @@
-$(document).ready(function() {
-    $('#api-form').submit(function(e) {
+document.addEventListener('DOMContentLoaded', function() {
+    var apiForm = document.getElementById('api-form');
+    var chatList = document.getElementById('chat-list');
+
+    apiForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        var userInput = $('#user-input').val();
+        var userInput = document.getElementById('user-input').value;
         makeAPICall(userInput);
     });
 
     function makeAPICall(input) {
-        // Make the API call using AJAX
-        $.ajax({
-            url: '/process',
-            type: 'POST',
-            data: { user_input: input },
-            success: function(response) {
-                updateChatBox(response);
-            },
-            error: function(error) {
-                console.error('API call failed:', error);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/process');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                updateChatBox(xhr.responseText);
+            } else {
+                console.error('API call failed:', xhr.status);
             }
-        });
+        };
+        xhr.send('user_input=' + encodeURIComponent(input));
     }
 
     function updateChatBox(response) {
-        // Update the chat box content with the response
-        $('.chat-box ul').html(response);
+        var chatItem = document.createElement('li');
+        chatItem.textContent = response;
+        chatList.appendChild(chatItem);
     }
 });
