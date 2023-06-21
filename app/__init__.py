@@ -11,7 +11,7 @@ api = Api(genaibox, prefix='/api')
 class ChatGPT3(object):
     def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
         #openai_api_key = os.environ.get('API_KEY')
-        openai_api_key = os.environ['API_KEY']
+        self.openai_api_key = os.environ['API_KEY']
         print("API KEY: {}".format(openai_api_key))
         # (7) chosen parameters for example
         self.model = model
@@ -50,6 +50,8 @@ class ChatGPT3(object):
         logging.info(response)
         return response
         '''
+    def getAPIKey(self):
+        return self.openai_api_key
 
 
 ### Parameter Tunning
@@ -84,6 +86,8 @@ def index():
 def process():
     prompt = request.form['user_input']
     
+    print("API KEY: {}".format(Box1.getAPIKey()))
+
     generated_text = Box1.chat(prompt)
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
