@@ -10,7 +10,8 @@ api = Api(genaibox, prefix='/api')
 ### OBJECTS AND FUNCTIONS
 class ChatGPT3(object):
     def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
-        openai_api_key = os.environ.get('API_KEY')
+        #openai_api_key = os.environ.get('API_KEY')
+        openai_api_key = os.environ['API_KEY']
         # (7) chosen parameters for example
         self.model = model
         self.context = context
@@ -81,18 +82,20 @@ def index():
 @genaibox.route('/process', methods=['POST'])
 def process():
     prompt = request.form['user_input']
-    generated_text = prompt
-
-    generated_text += '\n' + Box1.chat(prompt)
+    
+    generated_text = Box1.chat(prompt)
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         return jsonify(data=generated_text)  # Return JSON response for AJAX request
+    
+    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+    #     return jsonify(data=generated_text)  # Return JSON response for AJAX request
 
     return render_template('index.html')  # Render the template for regular form submission
 
 
 
-@genaibox.route('/box1', methods=['POST'])
+@genaibox.route('/box1', methods=['GET'])
 def box1():
     context = open('/static/context_box1.txt')
 
@@ -101,7 +104,7 @@ def box1():
 
 
 
-@genaibox.route('/box2', methods=['POST'])
+@genaibox.route('/box2', methods=['GET'])
 def box2():
     context = open('/static/context_box2.txt')
 
@@ -110,7 +113,7 @@ def box2():
 
 
 
-@genaibox.route('/box3', methods=['POST'])
+@genaibox.route('/box3', methods=['GET'])
 def box3():
     context = open('/static/context_box3.txt')
 
