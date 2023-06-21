@@ -158,8 +158,7 @@ ul li:nth-child(even) {
   
 .side-menu.open {
     left: 0;
-}
-  
+} 
 .close-button {
     position: absolute;
     top: 10px;

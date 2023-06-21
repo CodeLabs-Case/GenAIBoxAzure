@@ -76,28 +76,43 @@ Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 300, 0.2, 0.2, 0.0)
 def index():
     return render_template("index.html")
 
-# '''
+
+
 @genaibox.route('/process', methods=['POST'])
 def process():
     prompt = request.form['user_input']
-    print(prompt)
     generated_text = prompt
+
+    generated_text += '\n' + Box1.chat(prompt)
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         return jsonify(data=generated_text)  # Return JSON response for AJAX request
 
     return render_template('index.html')  # Render the template for regular form submission
-# '''
 
-'''
-@genaibox.route('/process', methods=['POST'])
-def process():
-    prompt = request.form['user_input']
-    
 
-    #generated_text = Box1.chat(prompt)
-    generated_text = prompt
 
-    #return render_template('index.html', data=generated_text)
-    return render_template('index.html', data=generated_text)
-'''
+@genaibox.route('/box1', methods=['POST'])
+def box1():
+    context = open('/static/context_box1.txt')
+
+    Box1.chat("Context: " + context)
+    return None
+
+
+
+@genaibox.route('/box2', methods=['POST'])
+def box2():
+    context = open('/static/context_box2.txt')
+
+    Box2.chat("Context: " + context)
+    return None
+
+
+
+@genaibox.route('/box3', methods=['POST'])
+def box3():
+    context = open('/static/context_box3.txt')
+
+    Box3.chat("Context: " + context)
+    return None
