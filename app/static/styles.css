@@ -44,6 +44,9 @@ h1.main-title {
     flex-direction: column-reverse;
     align-items: center;
 
+    padding-left: 40px;
+    padding-right: 40px;
+
     scrollbar-width: none; /* For Firefox */
     -ms-overflow-style: none; /* For Internet Explorer 10+ */
 }
