@@ -84,6 +84,7 @@ box3.addEventListener('click', function() {
 
 // Function to make the API call
 function boxAPICall(endpoint) {
+    // Whenever you load a new box, clear the chat window
     var chatMessages = document.getElementById('chat-messages');
     chatMessages.innerHTML = '';
     

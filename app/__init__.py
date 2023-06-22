@@ -10,9 +10,7 @@ api = Api(genaibox, prefix='/api')
 ### OBJECTS AND FUNCTIONS
 class ChatGPT3(object):
     def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
-        #openai_api_key = os.environ.get('API_KEY')
         self.openai_api_key = os.environ['API_KEY']
-        #print("API KEY: {}".format(self.openai_api_key))
         # (7) chosen parameters for example
         self.model = model
         self.context = context
@@ -44,14 +42,9 @@ class ChatGPT3(object):
 
         #print('\n\nContext:\n{}'.format(self.context))
         return response
-    
-        '''
-        response = self.get_response(text)
-        logging.info(response)
-        return response
-        '''
-    def getAPIKey(self):
-        return self.openai_api_key
+
+    def clearContext(self):
+        self.context = ''
 
 
 ### Parameter Tunning
@@ -75,7 +68,6 @@ Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 300, 0.2, 0.2, 0.0)
 
 
 ### ENDPOINTS
-
 @genaibox.route("/")
 def index():
     return render_template("index.html")
@@ -108,6 +100,7 @@ def box1():
     with open(file_path, 'r') as file:
         context = file.read()
 
+    Box1.clearContext()
     Box1.chat("Context: " + context)
 
     response = 'Box 1 Loaded!'
@@ -127,6 +120,7 @@ def box2():
     with open(file_path, 'r') as file:
         context = file.read()
 
+    Box2.clearContext()
     Box2.chat("Context: " + context)
 
     response = 'Box 2 Loaded!'
@@ -146,6 +140,7 @@ def box3():
     with open(file_path, 'r') as file:
         context = file.read()
 
+    Box3.clearContext()
     Box3.chat("Context: " + context)
 
     response = 'Box 3 Loaded!'
