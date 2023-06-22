@@ -84,14 +84,12 @@ box3.addEventListener('click', function() {
 
 // Function to make the API call
 function boxAPICall(endpoint) {
-    holder = ''
     fetch(endpoint, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'X-Requested-With': 'XMLHttpRequest'  // Set X-Requested-With header for AJAX request
-        },
-        body: 'user_input=' + encodeURIComponent(holder)
+        }
     })
     .then(function(response) {
         if (response.ok) {
