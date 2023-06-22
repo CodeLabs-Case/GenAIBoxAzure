@@ -102,7 +102,10 @@ def process():
 
 @genaibox.route('/box1', methods=['GET'])
 def box1():
-    with open('context_box1.txt', 'r') as file:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, 'static', 'context_box1.txt')
+
+    with open(file_path, 'r') as file:
         context = file.read()
 
     Box1.chat("Context: " + context)
