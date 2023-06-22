@@ -71,7 +71,7 @@ var box3 = document.getElementById('item-3');
 
 // Attach event listeners to each <li> element
 box1.addEventListener('click', function() {
-
+    var sideMenu = document.querySelector('.side-menu');
     var closeButton = sideMenu.querySelector('.close-button');
     closeButton.addEventListener('click', function() {
         sideMenu.classList.remove('open');
@@ -81,7 +81,7 @@ box1.addEventListener('click', function() {
 });
 
 box2.addEventListener('click', function() {
-
+    var sideMenu = document.querySelector('.side-menu');
     var closeButton = sideMenu.querySelector('.close-button');
     closeButton.addEventListener('click', function() {
         sideMenu.classList.remove('open');
@@ -91,12 +91,12 @@ box2.addEventListener('click', function() {
 });
 
 box3.addEventListener('click', function() {
-
+    var sideMenu = document.querySelector('.side-menu');
     var closeButton = sideMenu.querySelector('.close-button');
     closeButton.addEventListener('click', function() {
         sideMenu.classList.remove('open');
     });
-    
+
     boxAPICall('/box3');
 });
 
