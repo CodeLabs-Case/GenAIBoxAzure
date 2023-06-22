@@ -35,25 +35,9 @@ function makeAPICall(input) {
 function updateChatBox(response) {
     var chatMessages = document.getElementById('chat-messages');
     var chatItem = document.createElement('li');
+    chatItem.textContent = response;
     chatMessages.appendChild(chatItem);
 
-    words = response.split(" ")
-
-    let index = 0;
-    const interval = setInterval(function() {
-        inner_text = ''
-        while (index < words.length){
-            inner_text += words[index]
-        }
-        if (index < words.length) {
-            chatItem.textContent = inner_text + " ";
-            index++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 200);
-
-    //chatItem.textContent = response;
     scrollToBottom();
 }
 
