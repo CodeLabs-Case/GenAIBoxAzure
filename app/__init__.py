@@ -10,7 +10,7 @@ api = Api(genaibox, prefix='/api')
 ### OBJECTS AND FUNCTIONS
 class ChatGPT3(object):
     def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
-        self.openai_api_key = os.environ['API_KEY']
+        #self.openai_api_key = os.environ['API_KEY']
         # (7) chosen parameters for example
         self.model = model
         self.context = context
