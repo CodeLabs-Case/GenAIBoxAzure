@@ -50,12 +50,59 @@ document.addEventListener('DOMContentLoaded', function() {
     var hamburgerMenu = document.getElementById('hamburger-menu');
     var sideMenu = document.querySelector('.side-menu');
     var closeButton = sideMenu.querySelector('.close-button');
-  
+
     hamburgerMenu.addEventListener('click', function() {
-      sideMenu.classList.add('open');
+        sideMenu.classList.add('open');
     });
-  
+
     closeButton.addEventListener('click', function() {
-      sideMenu.classList.remove('open');
+        sideMenu.classList.remove('open');
     });
-  });
+});
+
+
+
+
+// Context Objects
+// Get references to the <li> elements
+var box1 = document.getElementById('item-1');
+var box2 = document.getElementById('item-2');
+var box3 = document.getElementById('item-3');
+
+// Attach event listeners to each <li> element
+box1.addEventListener('click', function() {
+    boxAPICall('/box1');
+});
+
+box2.addEventListener('click', function() {
+    boxAPICall('/box2');
+});
+
+box3.addEventListener('click', function() {
+    boxAPICall('/box3');
+});
+
+// Function to make the API call
+function boxAPICall(endpoint) {
+    fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest'  // Set X-Requested-With header for AJAX request
+        },
+        body: 'user_input=' + encodeURIComponent(input)
+    })
+    .then(function(response) {
+        if (response.ok) {
+            return response.json();  // Parse the response as JSON
+        } else {
+            throw new Error('API call failed: ' + response.status);
+        }
+    })
+    .then(function(data) {
+        updateChatBox(data.data);  // Access the 'response' value in the data JSON
+    })
+    .catch(function(error) {
+        console.error('Fetch error:', error);
+    });
+  }

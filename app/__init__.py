@@ -12,7 +12,7 @@ class ChatGPT3(object):
     def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
         #openai_api_key = os.environ.get('API_KEY')
         self.openai_api_key = os.environ['API_KEY']
-        print("API KEY: {}".format(self.openai_api_key))
+        #print("API KEY: {}".format(self.openai_api_key))
         # (7) chosen parameters for example
         self.model = model
         self.context = context
@@ -86,7 +86,7 @@ def index():
 def process():
     prompt = request.form['user_input']
     
-    print("API KEY: {}".format(Box1.getAPIKey()))
+    #print("API KEY: {}".format(Box1.getAPIKey()))
 
     generated_text = Box1.chat(prompt)
 
@@ -105,6 +105,12 @@ def box1():
     context = open('/static/context_box1.txt')
 
     Box1.chat("Context: " + context)
+
+    response = 'Box 1 Loaded!'
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify(data=response)  # Return JSON response for AJAX request
+    
     return None
 
 
@@ -114,6 +120,12 @@ def box2():
     context = open('/static/context_box2.txt')
 
     Box2.chat("Context: " + context)
+
+    response = 'Box 2 Loaded!'
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify(data=response)  # Return JSON response for AJAX request
+    
     return None
 
 
@@ -123,4 +135,10 @@ def box3():
     context = open('/static/context_box3.txt')
 
     Box3.chat("Context: " + context)
+
+    response = 'Box 3 Loaded!'
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify(data=response)  # Return JSON response for AJAX request
+
     return None
