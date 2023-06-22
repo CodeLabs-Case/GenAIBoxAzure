@@ -71,14 +71,32 @@ var box3 = document.getElementById('item-3');
 
 // Attach event listeners to each <li> element
 box1.addEventListener('click', function() {
+
+    var closeButton = sideMenu.querySelector('.close-button');
+    closeButton.addEventListener('click', function() {
+        sideMenu.classList.remove('open');
+    });
+
     boxAPICall('/box1');
 });
 
 box2.addEventListener('click', function() {
+
+    var closeButton = sideMenu.querySelector('.close-button');
+    closeButton.addEventListener('click', function() {
+        sideMenu.classList.remove('open');
+    });
+
     boxAPICall('/box2');
 });
 
 box3.addEventListener('click', function() {
+
+    var closeButton = sideMenu.querySelector('.close-button');
+    closeButton.addEventListener('click', function() {
+        sideMenu.classList.remove('open');
+    });
+    
     boxAPICall('/box3');
 });
 
