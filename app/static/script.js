@@ -104,4 +104,4 @@ function boxAPICall(endpoint) {
     .catch(function(error) {
         console.error('Fetch error:', error);
     });
-  }
+}

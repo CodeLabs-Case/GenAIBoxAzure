@@ -102,7 +102,8 @@ def process():
 
 @genaibox.route('/box1', methods=['GET'])
 def box1():
-    context = open('/static/context_box1.txt')
+    with open('static/context_box1.txt', 'r') as file:
+        context = file.read()
 
     Box1.chat("Context: " + context)
 
