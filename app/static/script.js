@@ -86,7 +86,7 @@ box3.addEventListener('click', function() {
 function boxAPICall(endpoint) {
     holder = ''
     fetch(endpoint, {
-        method: 'POST',
+        method: 'GET',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'X-Requested-With': 'XMLHttpRequest'  // Set X-Requested-With header for AJAX request

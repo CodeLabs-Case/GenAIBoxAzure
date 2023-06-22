@@ -100,7 +100,7 @@ def process():
 
 
 
-@genaibox.route('/box1', methods=['POST'])
+@genaibox.route('/box1', methods=['GET'])
 def box1():
     context = open('/static/context_box1.txt')
 
@@ -115,7 +115,7 @@ def box1():
 
 
 
-@genaibox.route('/box2', methods=['POST'])
+@genaibox.route('/box2', methods=['GET'])
 def box2():
     context = open('/static/context_box2.txt')
 
@@ -130,7 +130,7 @@ def box2():
 
 
 
-@genaibox.route('/box3', methods=['POST'])
+@genaibox.route('/box3', methods=['GET'])
 def box3():
     context = open('/static/context_box3.txt')
 
