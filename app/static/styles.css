@@ -67,7 +67,7 @@ li {
     margin: 10px;
     
 }
-#chat-messages li:nth-child(even) {
+#chat-messages li:nth-child(odd) {
     color: #0015b6;
 }
 #api-form {

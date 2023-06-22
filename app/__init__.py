@@ -5,14 +5,13 @@ import os
 
 genaibox = Flask(__name__,static_url_path='/static')
 
-######api = Api(genaibox, prefix='/api')
+api = Api(genaibox, prefix='/api')
 
 ### OBJECTS AND FUNCTIONS
 class ChatGPT3(object):
     def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
-        #openai_api_key = os.environ.get('API_KEY')
-        ######self.openai_api_key = os.environ['API_KEY']
-        ######print("API KEY: {}".format(self.openai_api_key))
+        self.openai_api_key = os.environ['API_KEY']
+        print("API KEY: {}".format(self.openai_api_key))
         # (7) chosen parameters for example
         self.model = model
         self.context = context
@@ -23,7 +22,7 @@ class ChatGPT3(object):
         self.presence_penalty = presence_penalty   # Values: 0.0 - 1.0
 
     def get_response(self, text):
-        ######openai.api_key = self.openai_api_key
+        openai.api_key = self.openai_api_key
         response = openai.ChatCompletion.create(
             model=self.model,
             messages=[{'role':'user','content':text}],
@@ -50,8 +49,6 @@ class ChatGPT3(object):
         logging.info(response)
         return response
         '''
-    # def getAPIKey(self):
-    #     return self.openai_api_key
 
 
 ### Parameter Tunning
