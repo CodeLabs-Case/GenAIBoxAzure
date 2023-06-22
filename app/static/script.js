@@ -84,6 +84,9 @@ box3.addEventListener('click', function() {
 
 // Function to make the API call
 function boxAPICall(endpoint) {
+    var chatMessages = document.getElementById('chat-messages');
+    chatMessages.innerHTML = '';
+    
     fetch(endpoint, {
         method: 'GET',
         headers: {

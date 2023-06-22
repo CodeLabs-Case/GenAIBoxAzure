@@ -121,7 +121,11 @@ def box1():
 
 @genaibox.route('/box2', methods=['GET'])
 def box2():
-    context = open('/static/context_box2.txt')
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, 'static', 'context_box2.txt')
+
+    with open(file_path, 'r') as file:
+        context = file.read()
 
     Box2.chat("Context: " + context)
 
@@ -136,7 +140,11 @@ def box2():
 
 @genaibox.route('/box3', methods=['GET'])
 def box3():
-    context = open('/static/context_box3.txt')
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, 'static', 'context_box3.txt')
+
+    with open(file_path, 'r') as file:
+        context = file.read()
 
     Box3.chat("Context: " + context)
 
