@@ -108,7 +108,7 @@ def box1():
     with open(file_path, 'r') as file:
         context = file.read()
 
-    Box1.clearContext()
+    #Box1.clearContext()
     Box1.chat("Context: " + context)
 
     response = 'Box 1 Loaded!'
@@ -128,7 +128,7 @@ def box2():
     with open(file_path, 'r') as file:
         context = file.read()
 
-    Box2.clearContext()
+    #Box2.clearContext()
     Box2.chat("Context: " + context)
 
     response = 'Box 2 Loaded!'
@@ -148,7 +148,7 @@ def box3():
     with open(file_path, 'r') as file:
         context = file.read()
 
-    Box3.clearContext()
+    #Box3.clearContext()
     Box3.chat("Context: " + context)
 
     response = 'Box 3 Loaded!'
