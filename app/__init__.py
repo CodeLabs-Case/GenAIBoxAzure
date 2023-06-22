@@ -115,7 +115,7 @@ def box1():
     Box1.clearContext()
     Box1.chat("Context: " + context)
 
-    response = 'Box 1 Loaded!'
+    response = 'Summarizer Loaded!'
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         return jsonify(data=response)  # Return JSON response for AJAX request
@@ -137,7 +137,7 @@ def box2():
     #Box2.clearContext()
     Box2.chat("Context: " + context)
 
-    response = 'Box 2 Loaded!'
+    response = 'Examiner Loaded!'
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         return jsonify(data=response)  # Return JSON response for AJAX request
@@ -159,7 +159,7 @@ def box3():
     #Box3.clearContext()
     Box3.chat("Context: " + context)
 
-    response = 'Box 3 Loaded!'
+    response = 'Instructor Loaded!'
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         return jsonify(data=response)  # Return JSON response for AJAX request
