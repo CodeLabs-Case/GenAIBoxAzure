@@ -108,7 +108,6 @@ li {
 
 
 
-
 /* Styles for the hamburger menu */
 .hamburger-menu {
     display: flex;
@@ -188,4 +187,11 @@ li {
     font-size: 20px;
     margin: 10px;
     
+}
+#box-list li {
+    cursor: pointer;
+    
+}
+#box-list li:hover {
+    color: #1c1c1c;
 }
