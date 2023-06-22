@@ -10,6 +10,7 @@ api = Api(genaibox, prefix='/api')
 ### OBJECTS AND FUNCTIONS
 class ChatGPT3(object):
     def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
+        #openai_api_key = os.environ.get('API_KEY')
         self.openai_api_key = os.environ['API_KEY']
         print("API KEY: {}".format(self.openai_api_key))
         # (7) chosen parameters for example
@@ -49,6 +50,8 @@ class ChatGPT3(object):
         logging.info(response)
         return response
         '''
+    def getAPIKey(self):
+        return self.openai_api_key
 
 
 ### Parameter Tunning
