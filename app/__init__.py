@@ -47,12 +47,12 @@ class ChatGPT3(object):
         self.context = ''
 
         response = openai.ChatCompletion.create(
-        model=self.model,
-        messages=[
-            {"role": "system", "content": "/restart"},
-        ],
-        context=self.context
-)
+            model=self.model,
+            messages=[
+                {"role": "system", "content": "/restart"}
+            ],
+            context=self.context
+        )
 
 
 ### Parameter Tunning
