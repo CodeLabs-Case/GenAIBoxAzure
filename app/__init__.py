@@ -73,7 +73,7 @@ class ChatGPT3(object):
 Box1 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 500, 0.1, 0.5, 0.0)
 Box2 = ChatGPT3('gpt-3.5-turbo-16k', 0.5, 500, 0.3, 0.0, 0.0)
 Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 300, 0.2, 0.2, 0.0)
-
+current_box = 0
 
 ### ENDPOINTS
 @genaibox.route("/")
@@ -87,8 +87,15 @@ def process():
     prompt = request.form['user_input']
     
     #print("API KEY: {}".format(Box1.getAPIKey()))
-
-    generated_text = Box1.chat(prompt)
+    if current_box == 1:
+        generated_text = Box1.chat(prompt)
+    elif current_box == 2:
+        generated_text = Box2.chat(prompt)
+    elif current_box == 3:
+        generated_text = Box3.chat(prompt)
+    else:
+        # Default to Box1
+        generated_text = Box1.chat(prompt)
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         return jsonify(data=generated_text)  # Return JSON response for AJAX request
@@ -102,6 +109,8 @@ def process():
 
 @genaibox.route('/box1', methods=['GET'])
 def box1():
+    current_box = 1
+
     current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, 'static', 'context_box1.txt')
 
@@ -122,6 +131,8 @@ def box1():
 
 @genaibox.route('/box2', methods=['GET'])
 def box2():
+    current_box = 2
+
     current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, 'static', 'context_box2.txt')
 
@@ -142,6 +153,8 @@ def box2():
 
 @genaibox.route('/box3', methods=['GET'])
 def box3():
+    current_box = 3
+
     current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, 'static', 'context_box3.txt')
 
