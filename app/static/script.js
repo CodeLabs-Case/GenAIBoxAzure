@@ -38,15 +38,16 @@ function updateChatBox(response) {
     chatMessages.appendChild(chatItem);
 
     words = response.split(" ")
-
-    // const interval = setInterval(function() {
-    //     if (index < words.length) {
-    //         chatItem.textContent += words[index] + " ";
-    //         index++;
-    //     } else {
-    //       clearInterval(interval);
-    //     }
-    //   }, 200);
+    
+    let index = 0;
+    const interval = setInterval(function() {
+        if (index < words.length) {
+            chatItem.textContent += words[index] + " ";
+            index++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 200);
 
     //chatItem.textContent = response;
     scrollToBottom();
