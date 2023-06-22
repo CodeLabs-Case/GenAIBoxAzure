@@ -38,11 +38,15 @@ function updateChatBox(response) {
     chatMessages.appendChild(chatItem);
 
     words = response.split(" ")
-    
+
     let index = 0;
     const interval = setInterval(function() {
+        inner_text = ''
+        while (index < words.length){
+            inner_text += words[index]
+        }
         if (index < words.length) {
-            chatItem.textContent += words[index] + " ";
+            chatItem.textContent = inner_text + " ";
             index++;
         } else {
           clearInterval(interval);
