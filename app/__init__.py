@@ -46,13 +46,6 @@ class ChatGPT3(object):
     def clearContext(self):
         self.context = ''
 
-        # response = openai.ChatCompletion.create(
-        #     model=self.model,
-        #     messages=[
-        #         {"role": "system", "content": "/restart"}
-        #     ],
-        #     context=self.context
-        # )
 
 
 ### Parameter Tunning
