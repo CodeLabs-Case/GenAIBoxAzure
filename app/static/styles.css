@@ -67,7 +67,7 @@ li {
     margin: 10px;
     
 }
-ul li:nth-child(even) {
+#chat-messages li:nth-child(even) {
     color: #0015b6;
 }
 #api-form {
@@ -176,4 +176,16 @@ ul li:nth-child(even) {
     height: 40px;
     background-color: rgb(137, 137, 137);
     cursor: pointer;
+}
+#box-list {
+    margin-top: 40px;
+    list-style-type: none;
+    align-items: center;
+}
+#box-list li {
+    word-break: break-word;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    margin: 10px;
+    
 }
