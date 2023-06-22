@@ -46,13 +46,13 @@ class ChatGPT3(object):
     def clearContext(self):
         self.context = ''
 
-        response = openai.ChatCompletion.create(
-            model=self.model,
-            messages=[
-                {"role": "system", "content": "/restart"}
-            ],
-            context=self.context
-        )
+        # response = openai.ChatCompletion.create(
+        #     model=self.model,
+        #     messages=[
+        #         {"role": "system", "content": "/restart"}
+        #     ],
+        #     context=self.context
+        # )
 
 
 ### Parameter Tunning
@@ -117,7 +117,7 @@ def box1():
     with open(file_path, 'r') as file:
         context = file.read()
 
-    #Box1.clearContext()
+    Box1.clearContext()
     Box1.chat("Context: " + context)
 
     response = 'Box 1 Loaded!'
