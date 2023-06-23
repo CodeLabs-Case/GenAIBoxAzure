@@ -78,7 +78,7 @@ def index():
 
 
 
-@genaibox.route('/process', methods=['POST'])
+@genaibox.route('/chat', methods=['POST'])
 def process():
     prompt = request.form['user_input']
     

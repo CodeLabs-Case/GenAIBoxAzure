@@ -11,7 +11,7 @@ function submitForm(event) {
 }
 
 function makeAPICall(input) {
-    fetch('/process', {
+    fetch('/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
