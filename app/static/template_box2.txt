@@ -1,4 +1,4 @@
-Example prompts and responses below for this conversation. Fill the text within the angle brackets "<>" using the text inside for a hint. Don't include the "Prompt" and "Repsonse" words themselves:
+Example prompts and responses below for this conversation. Fill the text within the angle brackets "<>" using the text inside for a hint. Don't include the "Prompt" and "Repsonse" words themselves. Ask only one question at a time:
 
 Prompt 1: Give me a question about the context provided.
 Response 1: Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
