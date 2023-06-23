@@ -120,7 +120,7 @@ def box1():
 
     Box1.clearContext()
     Box1.chat("Context: " + context)
-    Box3.chat("Examples: " + template)
+    Box1.chat("Examples: " + template)
 
     response = 'Summarizer Loaded!'
 
@@ -149,7 +149,7 @@ def box2():
 
     #Box2.clearContext()
     Box2.chat("Context: " + context)
-    Box3.chat("Examples: " + template)
+    Box2.chat("Examples: " + template)
 
     response = 'Examiner Loaded!'
 
