@@ -107,13 +107,20 @@ def box1():
     state['current_box'] = '1'
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(current_dir, 'static', 'context_box1.txt')
+    context_path = os.path.join(current_dir, 'static', 'context_box1.txt')
 
-    with open(file_path, 'r') as file:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    template_path = os.path.join(current_dir, 'static', 'template_box1.txt')
+
+    with open(context_path, 'r') as file:
         context = file.read()
+
+    with open(template_path, 'r') as file:
+        template = file.read()
 
     Box1.clearContext()
     Box1.chat("Context: " + context)
+    Box3.chat("Examples: " + template)
 
     response = 'Summarizer Loaded!'
 
@@ -129,13 +136,20 @@ def box2():
     state['current_box'] = '2'
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(current_dir, 'static', 'context_box2.txt')
+    context_path = os.path.join(current_dir, 'static', 'context_box2.txt')
 
-    with open(file_path, 'r') as file:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    template_path = os.path.join(current_dir, 'static', 'template_box2.txt')
+
+    with open(context_path, 'r') as file:
         context = file.read()
+
+    with open(template_path, 'r') as file:
+        template = file.read()
 
     #Box2.clearContext()
     Box2.chat("Context: " + context)
+    Box3.chat("Examples: " + template)
 
     response = 'Examiner Loaded!'
 
@@ -151,13 +165,20 @@ def box3():
     state['current_box'] = '3'
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(current_dir, 'static', 'context_box3.txt')
+    context_path = os.path.join(current_dir, 'static', 'context_box3.txt')
 
-    with open(file_path, 'r') as file:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    template_path = os.path.join(current_dir, 'static', 'template_box3.txt')
+
+    with open(context_path, 'r') as file:
         context = file.read()
+
+    with open(template_path, 'r') as file:
+        template = file.read()
 
     #Box3.clearContext()
     Box3.chat("Context: " + context)
+    Box3.chat("Examples: " + template)
 
     response = 'Instructor Loaded!'
 

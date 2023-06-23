@@ -1,3 +1,5 @@
+/* FORM SECTION */
+
 document.getElementById('api-form').addEventListener('submit', submitForm);
 
 function submitForm(event) {
@@ -46,6 +48,9 @@ function scrollToBottom() {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+
+
+/* SIDE MENU SECTION */
 document.addEventListener('DOMContentLoaded', function() {
     var hamburgerMenu = document.getElementById('hamburger-menu');
     var sideMenu = document.querySelector('.side-menu');
@@ -60,11 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
-
-// Context Objects
-// Get references to the <li> elements
 var box1 = document.getElementById('item-1');
 var box2 = document.getElementById('item-2');
 var box3 = document.getElementById('item-3');
