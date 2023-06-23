@@ -52,11 +52,11 @@ class ChatGPT3(object):
 # Summarizer Box(1):
     # Low Temperature
     # Large Frequency Penalty (Avoid Redundant Summaries)
-# NYC Guide Box(2):
+# Examiner Box(2):
     # Medium Temperature (More relaxed, Unpredicable)
     # Higher Top-P (Wordiness)
     # No Frequency Penalty (Redundancy Acceptable)
-# Computer Engineering Principles Box(3):
+# Instructor Box(3):
     # Low Temperature (Predictable)
     # Small Frequency Penalty (Small Repetition Acceptable)
 # gpt-3.5-turbo-16k
