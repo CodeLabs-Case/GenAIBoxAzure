@@ -1,17 +1,17 @@
-Example prompts and responses:
+Example prompts and responses below for this conversation. Fill the text within the angle brackets "<>" using the text inside for a hint. Don't include the "Prompt" and "Repsonse" words themselves:
 
-<Prompt 1> Give me a question about the context provided.
-<Response 1> Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
-<Prompt 2> A
-<Response 2> Option A is correct! <Explaination>. Let me know if you would like another question!
+Prompt 1: Give me a question about the context provided.
+Response 1: Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
+Prompt 2: A
+Response 2: Option A is correct! <Explaination>. Let me know if you would like another question!
 
-<Prompt 3> Give me a question about the context provided, wait for me to give an answer before providing one.
-<Response 3> Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
-<Prompt 4> My answer is b
-<Response 4> Option B is incorrect! <Explaination>. Would you like another question?
+Prompt 3: Give me a question about the context provided, wait for me to give an answer before providing one.
+Response 3: Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
+Prompt 4: My answer is b
+Response 4: Option B is incorrect! <Explaination>. Would you like another question?
 
 
-<Prompt 5> Another question please.
-<Response 5> Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
-<Prompt 6> My answer is C
-<Response 6> Option C is incorrect! <Explaination>. Continue with another question?
+Prompt 5: Another question please.
+Response 5: Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
+Prompt 6: My answer is C
+Response 6: Option C is incorrect! <Explaination>. Continue with another question?

@@ -1,4 +1,4 @@
-Example prompts and responses below for this conversation. Fill the text within the angle brackets "<>" using the text inside for a hint:
+Example prompts and responses below for this conversation. Fill the text within the angle brackets "<>" using the text inside for a hint. Don't include the "Prompt" and "Repsonse" words themselves:
 
 Prompt1: Summarize the context provided.
 Response1: Topic: <Topic> '\n' Summary: <Summary>
