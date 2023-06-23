@@ -1,4 +1,17 @@
 Example prompt: and responses:
 
-Prompt1:
-Response1:
+Prompt1: Give me a question about the context provided.
+Response1: Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
+Prompt2: A
+Response2: Option A is correct! <Explaination>. Let me know if you would like another question!
+
+Prompt3: Give me a question about the context provided, wait for me to give an answer before providing one.
+Response3: Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
+Prompt4: My answer is b
+Response4: Option B is incorrect! <Explaination>. Would you like another question?
+
+
+Prompt5: Another question please.
+Response5: Question: <Question About Context> '\n' Options: A. <Option A> B. <Option B> C. <Option C> D. <Option D> '\n' Your Answer: <Wait For User To Answer>
+Prompt6: My answer is C
+Response6: Option C is incorrect! <Explaination>. Continue with another question?

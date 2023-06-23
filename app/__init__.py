@@ -66,6 +66,7 @@ class ChatGPT3(object):
 Box1 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.1, 0.5, 0.0)
 Box2 = ChatGPT3('gpt-3.5-turbo-16k', 0.5, 1000, 0.3, 0.0, 0.0)
 Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.2, 0.2, 0.0)
+# Internal state to hold current box selected
 state = {
     "current_box" : "0"
 }
@@ -118,7 +119,9 @@ def box1():
     with open(template_path, 'r') as file:
         template = file.read()
 
+    # When the box is loaded clear contex
     Box1.clearContext()
+    # Load the box with content and examples
     Box1.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
 
     response = 'Summarizer Loaded!'
@@ -146,7 +149,9 @@ def box2():
     with open(template_path, 'r') as file:
         template = file.read()
 
-    #Box2.clearContext()
+    # When the box is loaded clear contex
+    Box2.clearContext()
+    # Load the box with content and examples
     Box2.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
 
     response = 'Examiner Loaded!'
@@ -174,7 +179,9 @@ def box3():
     with open(template_path, 'r') as file:
         template = file.read()
 
-    #Box3.clearContext()
+    # When the box is loaded clear contex
+    Box3.clearContext()
+    # Load the box with content and examples
     Box3.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
 
     response = 'Instructor Loaded!'
