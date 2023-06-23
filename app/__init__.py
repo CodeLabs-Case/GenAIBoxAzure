@@ -119,8 +119,7 @@ def box1():
         template = file.read()
 
     Box1.clearContext()
-    Box1.chat("Context: " + context)
-    Box1.chat("Examples: " + template)
+    Box1.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
 
     response = 'Summarizer Loaded!'
 
@@ -148,8 +147,7 @@ def box2():
         template = file.read()
 
     #Box2.clearContext()
-    Box2.chat("Context: " + context)
-    Box2.chat("Examples: " + template)
+    Box2.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
 
     response = 'Examiner Loaded!'
 
@@ -177,8 +175,7 @@ def box3():
         template = file.read()
 
     #Box3.clearContext()
-    Box3.chat("Context: " + context)
-    Box3.chat("Examples: " + template)
+    Box3.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
 
     response = 'Instructor Loaded!'
 
