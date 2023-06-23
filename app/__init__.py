@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from flask_restful import Api
+import urllib.request
 import openai
 import os
 from azure.storage.blob import BlobServiceClient, generate_blob_sas, BlobSasPermissions
@@ -140,11 +141,20 @@ def box1():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     template_path = os.path.join(current_dir, 'static', 'template_box1.txt')
 
-    with open('https://genaiazurestore.blob.core.windows.net/container0/context_box1.txt', 'r') as file:
+    '''
+    with open(context_path, 'r') as file:
         context = file.read()
+    '''
 
-    with open('https://genaiazurestore.blob.core.windows.net/container0/template_box1.txt', 'r') as file:
+    with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/context_box1.txt') as response:
+        context = response.read().decode('utf-8')
+
+    '''
+    with open(template_path, 'r') as file:
         template = file.read()
+    '''
+    with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/template_box1.txt') as response:
+        template = response.read().decode('utf-8')
 
     # When the box is loaded clear contex
     Box1.clearContext()
