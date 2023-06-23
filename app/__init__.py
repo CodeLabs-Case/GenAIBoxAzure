@@ -2,10 +2,37 @@ from flask import Flask, request, jsonify, render_template
 from flask_restful import Api
 import openai
 import os
+from azure.storage.blob import BlobServiceClient, generate_blob_sas, BlobSasPermissions
+from datetime import datetime, timedelta
 
 genaibox = Flask(__name__,static_url_path='/static')
 
-api = Api(genaibox, prefix='/api')
+
+'''
+account_name = 'genaiazurestore'
+account_key = 'pO268CvKKsyukyeG4sJlWFp/vHrs4XHAwqt42/dJcm3OYixq9vOYJ95JOyyIbL/T2iQ4JkrkUlja+AStJrABuw=='
+container_name = 'container0'
+
+connect_str = 'DefaultEndpointsProtocol=https;AccountName=genaiazurestore;AccountKey=pO268CvKKsyukyeG4sJlWFp/vHrs4XHAwqt42/dJcm3OYixq9vOYJ95JOyyIbL/T2iQ4JkrkUlja+AStJrABuw==;EndpointSuffix=core.windows.net'
+blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+
+container_client = blob_service_client.get_container_client(container_name)
+
+blob_list = []
+for blob_i in container_client.list_blobs():
+    blob_list.append(blob_i.name)
+
+file_list = []
+for blob_i in blob_list:
+    sas_i = generate_blob_sas(
+        account_name = account_name,
+        container_name = container_name,
+        blob_name = blob_i,
+        account_key = account_key,
+        permission = BlobSasPermissions(read=True),
+        expiry=datetime.utcnow() + timedelta(hours=6))
+    sas_url = 'https://' + account_name + '.blob.core.windows.net/' + container_name + '/' + blob_i + '?' + sas_i
+'''
 
 ### OBJECTS AND FUNCTIONS
 class ChatGPT3(object):
@@ -113,10 +140,10 @@ def box1():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     template_path = os.path.join(current_dir, 'static', 'template_box1.txt')
 
-    with open(context_path, 'r') as file:
+    with open('https://genaiazurestore.blob.core.windows.net/container0/context_box1.txt', 'r') as file:
         context = file.read()
 
-    with open(template_path, 'r') as file:
+    with open('https://genaiazurestore.blob.core.windows.net/container0/template_box1.txt', 'r') as file:
         template = file.read()
 
     # When the box is loaded clear contex
