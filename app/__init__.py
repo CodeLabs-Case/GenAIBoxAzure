@@ -9,7 +9,7 @@ genaibox = Flask(__name__,static_url_path='/static')
 
 ### MODEL AND FUNCTIONS
 class ChatGPT3(object):
-    def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, stop, context=''):
+    def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
         self.openai_api_key = os.environ['OPENAI_API_KEY']
         # (7) chosen parameters for example
         self.model = model
@@ -19,7 +19,6 @@ class ChatGPT3(object):
         self.top_p = top_p
         self.frequency_penalty = frequency_penalty
         self.presence_penalty = presence_penalty
-        self.stop = stop
 
     def get_response(self, text):
         openai.api_key = self.openai_api_key
@@ -30,8 +29,7 @@ class ChatGPT3(object):
             max_tokens=self.max_tokens,
             top_p=self.top_p,
             frequency_penalty=self.frequency_penalty,
-            presence_penalty=self.presence_penalty,
-            stop=['\n', str(self.stop)]
+            presence_penalty=self.presence_penalty
         )
         return response.choices[0].message['content'].strip()
 
@@ -65,9 +63,9 @@ class ChatGPT3(object):
     # 16,384 tokens
     # Same capabilities as the standard gpt-3.5-turbo model but with 4 times the context.
 # MODEL, TEMP, MAX_TOKENS, TOP-P, FREQ_PEN, PRES_PEN, STOP
-Box1 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.1, 0.5, 0.0,"")
-Box2 = ChatGPT3('gpt-3.5-turbo-16k', 0.5, 1000, 0.3, 0.0, 0.0,"")
-Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.2, 0.2, 0.0,"")
+Box1 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.1, 0.5, 0.0)
+Box2 = ChatGPT3('gpt-3.5-turbo-16k', 0.5, 1000, 0.3, 0.0, 0.0)
+Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.2, 0.2, 0.0)
 
 # Internal state to hold current box selected
 state = {
