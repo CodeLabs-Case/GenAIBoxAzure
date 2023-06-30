@@ -65,9 +65,9 @@ class ChatGPT3(object):
     # 16,384 tokens
     # Same capabilities as the standard gpt-3.5-turbo model but with 4 times the context.
 # MODEL, TEMP, MAX_TOKENS, TOP-P, FREQ_PEN, PRES_PEN, STOP
-Box1 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.1, 0.5, 0.0)
-Box2 = ChatGPT3('gpt-3.5-turbo-16k', 0.5, 1000, 0.3, 0.0, 0.0)
-Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.2, 0.2, 0.0)
+Box1 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.1, 0.5, 0.0,"")
+Box2 = ChatGPT3('gpt-3.5-turbo-16k', 0.5, 1000, 0.3, 0.0, 0.0,"")
+Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.2, 0.2, 0.0,"")
 
 # Internal state to hold current box selected
 state = {
