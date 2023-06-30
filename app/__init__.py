@@ -3,24 +3,23 @@ from flask_restful import Api
 import urllib.request
 import openai
 import os
-from azure.storage.blob import BlobServiceClient, generate_blob_sas, BlobSasPermissions
 from datetime import datetime, timedelta
 
-# Comment
 genaibox = Flask(__name__,static_url_path='/static')
 
-### OBJECTS AND FUNCTIONS
+### MODEL AND FUNCTIONS
 class ChatGPT3(object):
-    def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, context=''):
-        #self.openai_api_key = os.environ['API_KEY']
+    def __init__(self, model, temp, max_tokens, top_p, frequency_penalty, presence_penalty, stop, context=''):
+        self.openai_api_key = os.environ['OPENAI_API_KEY']
         # (7) chosen parameters for example
         self.model = model
         self.context = context
-        self.temp = temp                           # Values: 0.0 - 1.0
-        self.max_tokens = max_tokens               # Values: 0 - 4096
-        self.top_p = top_p                         # Values: 0.0 - 1.0
-        self.frequency_penalty = frequency_penalty # Values: 0.0 - 1.0
-        self.presence_penalty = presence_penalty   # Values: 0.0 - 1.0
+        self.temp = temp
+        self.max_tokens = max_tokens
+        self.top_p = top_p
+        self.frequency_penalty = frequency_penalty
+        self.presence_penalty = presence_penalty
+        self.stop = stop
 
     def get_response(self, text):
         openai.api_key = self.openai_api_key
@@ -31,7 +30,8 @@ class ChatGPT3(object):
             max_tokens=self.max_tokens,
             top_p=self.top_p,
             frequency_penalty=self.frequency_penalty,
-            presence_penalty=self.presence_penalty
+            presence_penalty=self.presence_penalty,
+            stop=['\n', str(self.stop)]
         )
         return response.choices[0].message['content'].strip()
 
@@ -40,7 +40,7 @@ class ChatGPT3(object):
         response = self.get_response("Context:" + self.context + "Prompt:" + text)
 
         # Add to the conversation history
-        self.context += text + "\n"
+        self.context += text + '\n'
 
         #print('\n\nContext:\n{}'.format(self.context))
         return response
@@ -64,21 +64,22 @@ class ChatGPT3(object):
 # gpt-3.5-turbo-16k
     # 16,384 tokens
     # Same capabilities as the standard gpt-3.5-turbo model but with 4 times the context.
-# MODEL, TEMP, MAX_TOKENS, TOP-P, FREQ_PEN, PRES_PEN
+# MODEL, TEMP, MAX_TOKENS, TOP-P, FREQ_PEN, PRES_PEN, STOP
 Box1 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.1, 0.5, 0.0)
 Box2 = ChatGPT3('gpt-3.5-turbo-16k', 0.5, 1000, 0.3, 0.0, 0.0)
 Box3 = ChatGPT3('gpt-3.5-turbo-16k', 0.1, 1000, 0.2, 0.2, 0.0)
+
 # Internal state to hold current box selected
 state = {
     "current_box" : "0"
 }
 
+
+
 ### ENDPOINTS
 @genaibox.route("/")
 def index():
     return render_template("index.html")
-
-
 
 @genaibox.route('/chat', methods=['POST'])
 def process():
@@ -102,8 +103,6 @@ def process():
     #     return jsonify(data=generated_text)  # Return JSON response for AJAX request
 
     return render_template('index.html')  # Render the template for regular form submission
-
-
 
 @genaibox.route('/box1', methods=['GET'])
 def box1():
@@ -142,8 +141,6 @@ def box1():
     
     return None
 
-
-
 @genaibox.route('/box2', methods=['GET'])
 def box2():
     state['current_box'] = '2'
@@ -180,8 +177,6 @@ def box2():
         return jsonify(data=response)  # Return JSON response for AJAX request
     
     return None
-
-
 
 @genaibox.route('/box3', methods=['GET'])
 def box3():
