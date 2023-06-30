@@ -171,12 +171,12 @@ def box2():
     # When the box is loaded clear contex
     Box2.clearContext()
     # Load the box with content and examples
-    generated_text = Box2.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
+    Box2.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
 
     response = 'Examiner Loaded!'
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        return jsonify(data=generated_text)  # Return JSON response for AJAX request
+        return jsonify(data=response)  # Return JSON response for AJAX request
     
     return None
 
