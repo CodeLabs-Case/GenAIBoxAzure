@@ -106,24 +106,26 @@ def process():
 def box1():
     state['current_box'] = '1'
 
+    '''
     current_dir = os.path.dirname(os.path.abspath(__file__))
     context_path = os.path.join(current_dir, 'static', 'context_box1.txt')
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
     template_path = os.path.join(current_dir, 'static', 'template_box1.txt')
+    '''
 
     '''
     with open(context_path, 'r') as file:
         context = file.read()
     '''
-
-    with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/context_box1.txt') as response:
-        context = response.read().decode('utf-8')
-
     '''
     with open(template_path, 'r') as file:
         template = file.read()
     '''
+
+    with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/context_box1.txt') as response:
+        context = response.read().decode('utf-8')
+
     with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/template_box1.txt') as response:
         template = response.read().decode('utf-8')
 
@@ -143,23 +145,25 @@ def box1():
 def box2():
     state['current_box'] = '2'
 
+    '''
     current_dir = os.path.dirname(os.path.abspath(__file__))
     context_path = os.path.join(current_dir, 'static', 'context_box2.txt')
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
     template_path = os.path.join(current_dir, 'static', 'template_box2.txt')
+    '''
 
     '''
     with open(context_path, 'r') as file:
         context = file.read()
     '''
-    with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/context_box2.txt') as response:
-        context = response.read().decode('utf-8')
-
     '''
     with open(template_path, 'r') as file:
         template = file.read()
     '''
+
+    with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/context_box2.txt') as response:
+        context = response.read().decode('utf-8')
 
     with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/template_box2.txt') as response:
         template = response.read().decode('utf-8')
@@ -167,12 +171,12 @@ def box2():
     # When the box is loaded clear contex
     Box2.clearContext()
     # Load the box with content and examples
-    Box2.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
+    generated_text = Box2.chat("Context: " + context + "\n" + "Few-Examples Section: " + template)
 
     response = 'Examiner Loaded!'
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        return jsonify(data=response)  # Return JSON response for AJAX request
+        return jsonify(data=generated_text)  # Return JSON response for AJAX request
     
     return None
 
@@ -180,24 +184,25 @@ def box2():
 def box3():
     state['current_box'] = '3'
 
+    '''
     current_dir = os.path.dirname(os.path.abspath(__file__))
     context_path = os.path.join(current_dir, 'static', 'context_box3.txt')
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
     template_path = os.path.join(current_dir, 'static', 'template_box3.txt')
+    '''
 
     '''
     with open(context_path, 'r') as file:
         context = file.read()
     '''
-
-    with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/context_box3.txt') as response:
-        context = response.read().decode('utf-8')
-
     '''
     with open(template_path, 'r') as file:
         template = file.read()
     '''
+
+    with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/context_box3.txt') as response:
+        context = response.read().decode('utf-8')
 
     with urllib.request.urlopen('https://genaiazurestore.blob.core.windows.net/container0/template_box3.txt') as response:
         template = response.read().decode('utf-8')
